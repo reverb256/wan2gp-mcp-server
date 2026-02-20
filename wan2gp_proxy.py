@@ -259,6 +259,11 @@ async def run_generation(task_id: str, params: Dict[str, Any]):
             wgp.app = DummyApp()
 
         try:
+            # CRITICAL: Change to Wan2GP directory before calling generate_video
+            # This ensures relative paths like 'models/wan/configs/...' resolve correctly
+            old_cwd = os.getcwd()
+            os.chdir(WAN2GP_PATH)
+
             result = await asyncio.to_thread(
                 generate_video,
                 task=params.get("task", ""),
@@ -405,6 +410,9 @@ async def run_generation(task_id: str, params: Dict[str, Any]):
             _tasks[task_id]["error"] = str(e)
             _tasks[task_id]["traceback"] = traceback.format_exc()
             logger.error(f"Task {task_id} failed: {e}")
+        finally:
+            # CRITICAL: Restore working directory after generation
+            os.chdir(old_cwd)
 
     except Exception as e:
         _tasks[task_id]["status"] = "failed"

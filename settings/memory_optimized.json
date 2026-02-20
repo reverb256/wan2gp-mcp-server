@@ -1,0 +1,27 @@
+{
+  "description": "Memory-optimized settings for systems with 32GB RAM",
+  "recommended_resolution": "720x480",
+  "recommended_profile": 4,
+  "max_video_length": 49,
+  "settings": {
+    "resolution": "720x480",
+    "video_length": 49,
+    "num_inference_steps": 15,
+    "guidance_scale": 5.0,
+    "override_profile": 4,
+    "batch_size": 1
+  },
+  "memory_management": {
+    "use_cache": false,
+    "cpu_offload": true,
+    "attention_mode": "sdpa",
+    "enable_model_cpu_offload": true
+  },
+  "notes": [
+    "Use Profile 4 (Low Quality) for memory efficiency",
+    "Lower resolution (720x480) reduces RAM usage",
+    "Fewer inference steps (15 instead of 20)",
+    "Lower guidance scale (5.0 instead of 7.5)",
+    "Consider using Profile 5 (512x512) if still out of memory"
+  ]
+}

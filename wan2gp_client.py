@@ -33,6 +33,13 @@ class GenerationTask:
     error_message: Optional[str] = None
     created_at: float = None
 
+    # Memory-safe defaults for 32GB RAM systems
+    DEFAULT_RESOLUTION = "720x480"  # Instead of 1280x720
+    DEFAULT_VIDEO_LENGTH = 49       # ~2 seconds
+    DEFAULT_STEPS = 15              # Instead of 20
+    DEFAULT_GUIDANCE = 5.0          # Instead of 7.5
+    DEFAULT_PROFILE = 4             # Low quality profile - saves RAM
+
     def __post_init__(self):
         if self.created_at is None:
             self.created_at = time.time()
