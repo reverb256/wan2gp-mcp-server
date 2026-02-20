@@ -1,0 +1,8 @@
+{
+  "wan2gp_url": "http://localhost:7861",
+  "timeout": 300,
+  "max_concurrent_tasks": 3,
+  "default_model": "t2v_2_2",
+  "default_resolution": "1280x720",
+  "output_directory": "./output"
+}

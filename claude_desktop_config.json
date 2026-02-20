@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "wan2gp": {
+      "command": "python",
+      "args": [
+        "/data/@projects/wan2gp-mcp-server/wan2gp_mcp_server.py"
+      ],
+      "env": {
+        "WAN2GP_URL": "http://localhost:7860",
+        "WAN2GP_TIMEOUT": "300",
+        "LOG_LEVEL": "INFO"
+      }
+    }
+  }
+}
